@@ -2,9 +2,19 @@
 -- documentation, see http://haskell.org/cabal/users-guide/
 
 name:                doctest-prop
-version:             0.1.0.0
+version:             0.1.0.1
 synopsis:            Allow QuickCheck-style property testing within doctest.
--- description:         
+description:         
+
+  This package allows you to write QuickCheck properties and HUnit
+  assertions within doctest, using functions that keep silence when
+  test succeeds and print out the test outputs otherwise.  
+  .
+  To enjoy behavior driven development in Haskell, first import
+  @Test.DocTest.Prop@, and use @prop@, @propWith@ and @unit@ to write
+  in-place tests. For more details, please refer to examples in the
+  module @Test.DocTest.Prop@ .
+
 license:             MIT
 license-file:        LICENSE
 author:              Takayuki Muranushi
@@ -14,10 +24,12 @@ category:            Testing
 build-type:          Simple
 cabal-version:       >=1.8
 
+
 library
   exposed-modules:     Test.DocTest.Prop
   hs-source-dirs:    ./src/
   build-depends:       base ==4.*
+                     , HUnit
                      , QuickCheck
 
 Test-Suite test
@@ -26,4 +38,10 @@ Test-Suite test
   Type:              exitcode-stdio-1.0
   Build-Depends:     base == 4.*
                    , doctest >=0.8
+                   , HUnit
                    , QuickCheck
+
+source-repository head
+  type:              git
+  location:          git://github.com/nushio3/doctest-prop.git
+  

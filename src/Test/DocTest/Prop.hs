@@ -1,9 +1,9 @@
 {-# Options -Wall #-}
 {-|
 
-This package allows you to write QuickCheck properties within doctest,
-using functions that keep silence when test succeeds and print out the
-test outputs otherwise.
+This package allows you to write QuickCheck properties and HUnit
+assertions within doctest, using functions that keep silence when test
+succeeds and print out the test outputs otherwise.
 
 To enjoy behavior driven development in Haskell, first import
 @Test.DocTest.Prop@, and use @prop@, @propWith@ and @unit@ to write
@@ -13,15 +13,15 @@ in-place tests, as follows.
 >>> prop $ \x -> x*2 == x+x
 >>> prop ((<2) . fromEnum :: Bool -> Bool)
 >>> propWith (quietArgs{maxSize=3}) $ (<10).length
->>> unit $ 1+1==2
-
+>>> assert $ 1+1==2
 -}
 
 module Test.DocTest.Prop
-       (prop, propWith, quietArgs, unit) where
+       (prop, propWith, quietArgs, assert) where
 
 
 import Test.QuickCheck
+import Test.HUnit (assert)
 
 -- | The standard arguments for QuickCheck but the chatty flag is off.
 quietArgs :: Args
@@ -42,8 +42,3 @@ propWith args p = do
   case r of
     Success _ _ _ -> return ()
     _ -> putStrLn $ output r
-
--- | Test for an unchanging property.
-unit :: Bool -> IO ()
-unit True  = return ()
-unit False = putStrLn "Failure"
