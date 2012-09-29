@@ -14,5 +14,5 @@ import Test.DocTest.Prop
 prop $ \x -> x*2 == x+x
 prop ((<2) . fromEnum :: Bool -> Bool)
 propWith (quietArgs{maxSize=3}) $ (<10).length
-unit $ 1+1==2
+assert $ 1+1==2
 ```
