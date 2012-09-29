@@ -1,11 +1,12 @@
+{-# Options -Wall #-}
 {-|
 
 This package allows you to write QuickCheck properties within doctest,
 using functions that keep silence when test succeeds and print out the
 test outputs otherwise.
 
-To enjoy behavior driven development in Haskell, first import 
-@Test.DocTest.Prop@, and use @prop@, @propWith@ and @unit@ to write 
+To enjoy behavior driven development in Haskell, first import
+@Test.DocTest.Prop@, and use @prop@, @propWith@ and @unit@ to write
 in-place tests, as follows.
 
 >>> import Test.DocTest.Prop
