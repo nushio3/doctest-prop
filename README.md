@@ -1,6 +1,12 @@
 doctest-prop
 ============
 
+Now that the upstream package [doctest](https://github.com/sol/doctest) has integrated support for [QuickCheck properties](https://github.com/sol/doctest#quickcheck-properties), this package had fulfilled its role and is deprecated. __Please use the [quickcheck properties](https://github.com/sol/doctest#quickcheck-properties) in doctest.__
+
+
+What this package used to be
+------
+
 This package allows you to write QuickCheck properties within doctest,
 using functions that keep silence when test succeeds and print out the
 test outputs otherwise.
